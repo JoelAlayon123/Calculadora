@@ -9,9 +9,11 @@ class Menus
     puts "|Operar con:                                       |"
     puts "|      1) Enteros                                  |"
     puts "|      2) Flotantes                                |"
+    puts "|                                                  |"
+    puts "|Otras opciones:                                   |"
+    puts "|      3) Salir                                    |"
     puts "===================================================="
     print "Ingrese el numero de la opción: "; @unidad = gets.chomp.to_i
-    puts "===================================================="
   end
 
   def enteros
@@ -24,6 +26,9 @@ class Menus
     puts "|      2) Resta                                    |"
     puts "|      3) Multiplicación                           |"
     puts "|      4) División                                 |"
+    puts "|                                                  |"
+    puts "|Otras opciones:                                   |"
+    puts "|      5) Atrás                                    |"
     puts "===================================================="
     print "Ingrese el numero de la opción: "; @operacion = gets.chomp.to_i
     puts "===================================================="
@@ -39,6 +44,9 @@ class Menus
       puts "|      2) Resta                                    |"
       puts "|      3) Multiplicación                           |"
       puts "|      4) División                                 |"
+      puts "|                                                  |"
+      puts "|Otras opciones:                                   |"
+      puts "|      5) Atrás                                    |"
       puts "===================================================="
       print "Ingrese el numero de la opción: "; @operacion = gets.chomp.to_i
       puts "===================================================="

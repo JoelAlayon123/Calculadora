@@ -44,6 +44,8 @@ loop do
         @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
 
         break if @realizar_otra_operacion == "No"
+      when 5
+        break
       else
         opcion_incorrecta.imprimir
         @intentar_otra_vez = opcion_incorrecta.intentar_otra_vez
@@ -84,6 +86,8 @@ loop do
         @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
 
         break if @realizar_otra_operacion == "No"
+      when 5
+        break
       else
         opcion_incorrecta.imprimir
         @intentar_otra_vez = opcion_incorrecta.intentar_otra_vez
@@ -94,6 +98,8 @@ loop do
     end
     break if @realizar_otra_operacion == "No"
     break if @intentar_otra_vez == "No"
+  when 3
+    break
   else
     opcion_incorrecta.imprimir
 
