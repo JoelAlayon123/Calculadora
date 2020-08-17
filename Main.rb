@@ -2,7 +2,9 @@ require_relative "Opcion_incorrecta.rb"
 require_relative "Otra_operacion.rb"
 require_relative "Menus.rb"
 require_relative "Interfaces.rb"
- 
+
+@historial = []
+
 menus = Menus.new()
 interfaz_enteros = InterfazEnteros.new()
 interfaz_flotantes = InterfazFlotantes.new()
@@ -24,24 +26,28 @@ loop do
         interfaz_enteros.suma_enteros
         otra_operacion.imprimir
         @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
+        @historial.push(interfaz_enteros.historial_resultado)
 
         break if @realizar_otra_operacion == "No"
       when 2  
         interfaz_enteros.resta_enteros
         otra_operacion.imprimir
         @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
+        @historial.push(interfaz_enteros.historial_resultado)
 
         break if @realizar_otra_operacion == "No"
       when 3
         interfaz_enteros.multiplicacion_enteros
         otra_operacion.imprimir
         @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
+        @historial.push(interfaz_enteros.historial_resultado)
 
         break if @realizar_otra_operacion == "No"
       when 4
         interfaz_enteros.division_enteros
         otra_operacion.imprimir
         @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
+        @historial.push(interfaz_enteros.historial_resultado)
 
         break if @realizar_otra_operacion == "No"
       when 5
@@ -49,6 +55,7 @@ loop do
       else
         opcion_incorrecta.imprimir
         @intentar_otra_vez = opcion_incorrecta.intentar_otra_vez
+        @historial.push(interfaz_enteros.historial_resultado)
 
         break if @intentar_otra_vez == "No"
       end
@@ -66,24 +73,28 @@ loop do
         interfaz_flotantes.suma_flotantes
         otra_operacion.imprimir
         @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
+        @historial.push(interfaz_flotantes.historial_resultado)
 
         break if @realizar_otra_operacion == "No"
       when 2
         interfaz_flotantes.resta_flotantes
         otra_operacion.imprimir
         @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
+        @historial.push(interfaz_flotantes.historial_resultado)
 
         break if @realizar_otra_operacion == "No"
       when 3
         interfaz_flotantes.multiplicacion_flotantes
         otra_operacion.imprimir
         @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
+        @historial.push(interfaz_flotantes.historial_resultado)
 
         break if @realizar_otra_operacion == "No"
       when 4
         interfaz_flotantes.division_flotantes
         otra_operacion.imprimir
         @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
+        @historial.push(interfaz_flotantes.historial_resultado)
 
         break if @realizar_otra_operacion == "No"
       when 5
@@ -99,12 +110,27 @@ loop do
     break if @realizar_otra_operacion == "No"
     break if @intentar_otra_vez == "No"
   when 3
+    if @historial.count == 0
+      menus.historial_vacio
+      otra_operacion.imprimir
+      @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
+      
+      break if @realizar_otra_operacion== "No"
+    else
+      menus.historial(@historial)
+      otra_operacion.imprimir
+      @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
+      
+      break if @realizar_otra_operacion== "No"
+    end
+  when 4
     break
   else
     opcion_incorrecta.imprimir
 
     break if opcion_incorrecta.intentar_otra_vez == "No"
   end
+  break if @realizar_otra_operacion == "No"
 end
 
 menus.saludo

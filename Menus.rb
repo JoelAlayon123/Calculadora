@@ -11,7 +11,8 @@ class Menus
     puts "|      2) Flotantes                                |"
     puts "|                                                  |"
     puts "|Otras opciones:                                   |"
-    puts "|      3) Salir                                    |"
+    puts "|      3) Historial                                |"
+    puts "|      4) Salir                                    |"
     puts "===================================================="
     print "Ingrese el numero de la opción: "; @unidad = gets.chomp.to_i
   end
@@ -55,6 +56,26 @@ class Menus
   def saludo
     puts "===================================================="
     puts "                  Hasta luego!!!                    "
+    puts "===================================================="
+  end
+
+  def historial(historial)
+    print "\e[2J\e[f"
+    puts "===================================================="
+    puts "|                   Historial                      |"
+    puts "===================================================="
+
+    historial.each do |n|
+      puts " " + n       
+    end
+
+    puts "===================================================="
+  end
+
+  def historial_vacio
+    print "\e[2J\e[f"
+    puts "===================================================="
+    puts "Su historial está vacío"
     puts "===================================================="
   end
 end

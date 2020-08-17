@@ -1,6 +1,8 @@
 require_relative "Calcular.rb"
 
 class InterfazEnteros
+  attr_reader :historial_resultado
+
   def suma_enteros
     puts "Usted seleccionó la operación 'Suma'"
     print "Ingrese el primer numero a sumar: "; a = gets.chomp.to_i
@@ -11,6 +13,8 @@ class InterfazEnteros
 
     puts "La suma de #{a} + #{b} = #{calcular.resultado}"
     puts "===================================================="
+    
+    @historial_resultado = ("#{a} + #{b} = #{calcular.resultado}")
   end
 
   def resta_enteros
@@ -24,6 +28,7 @@ class InterfazEnteros
     puts "La resta de #{a} - #{b} = #{calcular.resultado}"
     puts "===================================================="
         
+    @historial_resultado = ("#{a} - #{b} = #{calcular.resultado}")
   end
 
   def multiplicacion_enteros
@@ -36,6 +41,8 @@ class InterfazEnteros
 
     puts "La multiplicación de #{a} * #{b} = #{calcular.resultado}"
     puts "===================================================="
+
+    @historial_resultado = ("#{a} * #{b} = #{calcular.resultado}")
   end
 
   def division_enteros
@@ -49,10 +56,13 @@ class InterfazEnteros
     puts "La división de #{a} / #{b} = #{calcular.resultado}"
     puts "===================================================="
         
+    @historial_resultado = ("#{a} / #{b} = #{calcular.resultado}")
   end
 end
 
 class InterfazFlotantes
+  attr_reader :historial_resultado
+
   def suma_flotantes
     puts "Usted seleccionó la operación 'Suma'"
     print "Ingrese el primer numero a sumar: "; a = gets.chomp.to_f
@@ -63,6 +73,8 @@ class InterfazFlotantes
 
     puts "La suma de #{a} + #{b} = #{calcular.resultado}"
     puts "===================================================="
+
+    @historial_resultado = ("#{a} + #{b} = #{calcular.resultado}")
   end
 
   def resta_flotantes
@@ -75,6 +87,8 @@ class InterfazFlotantes
     
     puts "La resta de #{a} - #{b} = #{calcular.resultado}"
     puts "===================================================="
+
+    @historial_resultado = ("#{a} - #{b} = #{calcular.resultado}")
   end
 
   def multiplicacion_flotantes
@@ -87,6 +101,8 @@ class InterfazFlotantes
     
     puts "La multiplicación de #{a} * #{b} = #{calcular.resultado}"
     puts "===================================================="
+
+    @historial_resultado = ("#{a} * #{b} = #{calcular.resultado}")
   end
 
   def division_flotantes
@@ -99,5 +115,7 @@ class InterfazFlotantes
     
     puts "La división de #{a} / #{b} = #{calcular.resultado}"
     puts "===================================================="
+
+    @historial_resultado = ("#{a} / #{b} = #{calcular.resultado}")
   end
 end
