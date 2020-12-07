@@ -1,81 +1,63 @@
 class Menus
-  attr_reader :unidad, :operacion
+  attr_reader :unit, :operation
 
-  def opciones
+  def options
     print "\e[2J\e[f"
     puts "===================================================="
-    puts "|                     Opciones                     |"
+    puts "|                     Options                      |"
     puts "|==================================================|"
-    puts "|Operar con:                                       |"
-    puts "|      1) Enteros                                  |"
-    puts "|      2) Flotantes                                |"
+    puts "|Options:                                          |"
+    puts "|      1) Operations                               |"
     puts "|                                                  |"
-    puts "|Otras opciones:                                   |"
-    puts "|      3) Historial                                |"
-    puts "|      4) Salir                                    |"
+    puts "|Others:                                           |"
+    puts "|      2) History                                  |"
+    puts "|      3) Exit                                     |"
     puts "===================================================="
-    print "Ingrese el numero de la opción: "; @unidad = gets.chomp.to_i
+    print "Enter the option number: "; @unit = gets.chomp.to_i
   end
 
-  def enteros
+  def operations
     print "\e[2J\e[f"
     puts "===================================================="
-    puts "|                     Enteros                      |"
+    puts "|                    Operations                    |"
     puts "|==================================================|"
-    puts "|Operaciones:                                      |"
-    puts "|      1) Suma                                     |"
-    puts "|      2) Resta                                    |"
-    puts "|      3) Multiplicación                           |"
-    puts "|      4) División                                 |"
+    puts "|Operations:                                       |"
+    puts "|      1) Add                                      |"
+    puts "|      2) Subtract                                 |"
+    puts "|      3) Multiplication                           |"
+    puts "|      4) Division                                 |"
     puts "|                                                  |"
-    puts "|Otras opciones:                                   |"
-    puts "|      5) Atrás                                    |"
+    puts "|Others:                                           |"
+    puts "|      5) Back                                     |"
     puts "===================================================="
-    print "Ingrese el numero de la opción: "; @operacion = gets.chomp.to_i
-    puts "===================================================="
-  end
-
-  def flotantes
-    print "\e[2J\e[f"
-      puts "===================================================="
-      puts "|                     Flotantes                    |"
-      puts "|==================================================|"
-      puts "|Operaciones:                                      |"
-      puts "|      1) Suma                                     |"
-      puts "|      2) Resta                                    |"
-      puts "|      3) Multiplicación                           |"
-      puts "|      4) División                                 |"
-      puts "|                                                  |"
-      puts "|Otras opciones:                                   |"
-      puts "|      5) Atrás                                    |"
-      puts "===================================================="
-      print "Ingrese el numero de la opción: "; @operacion = gets.chomp.to_i
-      puts "===================================================="
-  end
-
-  def saludo
-    puts "===================================================="
-    puts "                  Hasta luego!!!                    "
+    print "Enter the option number: "; @operation = gets.chomp.to_i
     puts "===================================================="
   end
 
-  def historial(historial)
+  def good_bye
     print "\e[2J\e[f"
     puts "===================================================="
-    puts "|                   Historial                      |"
+    puts "|                  Good Bye!!!                     |"
+    puts "===================================================="
+  end
+
+  def history(history)
+    print "\e[2J\e[f"
+    puts "===================================================="
+    puts "|                   History                        |"
     puts "===================================================="
 
-    historial.each do |n|
+    history.each do |n|
       puts " " + n       
     end
 
     puts "===================================================="
   end
 
-  def historial_vacio
+  def empty_history
     print "\e[2J\e[f"
     puts "===================================================="
-    puts "Su historial está vacío"
+    puts "Your history is empty!"
     puts "===================================================="
   end
 end

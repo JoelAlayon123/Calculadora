@@ -1,136 +1,88 @@
-require_relative "Opcion_incorrecta.rb"
-require_relative "Otra_operacion.rb"
+require_relative "Wrong_option.rb"
+require_relative "Other_Operation"
 require_relative "Menus.rb"
 require_relative "Interfaces.rb"
 
-@historial = []
+@history = []
 
 menus = Menus.new()
-interfaz_enteros = InterfazEnteros.new()
-interfaz_flotantes = InterfazFlotantes.new()
-otra_operacion = OtraOperacion.new()
-opcion_incorrecta = OpcionIncorrecta.new()
+numbers_interface = NumbersInterface.new()
+other_operation = OtherOperation.new()
+wrong_option = WrongOption.new()
 
 loop do
-  menus.opciones
-  unidad = menus.unidad
+  menus.options
+  unit = menus.unit
 
-  case unidad
+  case unit
   when 1
     loop do
-      menus.enteros
-      operacion = menus.operacion
+      menus.operations
+      operation = menus.operation
 
-      case operacion
+      case operation
       when 1
-        interfaz_enteros.suma_enteros
-        otra_operacion.imprimir
-        @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
-        @historial.push(interfaz_enteros.historial_resultado)
+        numbers_interface.add
+        other_operation.print_other_operation
+        @other_operation = other_operation.other_operation
+        @history.push(numbers_interface.results_history)
 
-        break if @realizar_otra_operacion == "No"
+        break if @other_operation == "No"
       when 2  
-        interfaz_enteros.resta_enteros
-        otra_operacion.imprimir
-        @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
-        @historial.push(interfaz_enteros.historial_resultado)
+        numbers_interface.subtract
+        other_operation.print_other_operation
+        @other_operation = other_operation.other_operation
+        @history.push(numbers_interface.results_history)
 
-        break if @realizar_otra_operacion == "No"
+        break if @other_operation == "No"
       when 3
-        interfaz_enteros.multiplicacion_enteros
-        otra_operacion.imprimir
-        @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
-        @historial.push(interfaz_enteros.historial_resultado)
+        numbers_interface.multiplicate
+        other_operation.print_other_operation
+        @other_operation = other_operation.other_operation
+        @history.push(numbers_interface.results_history)
 
-        break if @realizar_otra_operacion == "No"
+        break if @other_operation == "No"
       when 4
-        interfaz_enteros.division_enteros
-        otra_operacion.imprimir
-        @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
-        @historial.push(interfaz_enteros.historial_resultado)
+        numbers_interface.division
+        other_operation.print_other_operation
+        @other_operation = other_operation.other_operation
+        @history.push(numbers_interface.results_history)
 
-        break if @realizar_otra_operacion == "No"
+        break if @other_operation == "No"
       when 5
         break
       else
-        opcion_incorrecta.imprimir
-        @intentar_otra_vez = opcion_incorrecta.intentar_otra_vez
-        @historial.push(interfaz_enteros.historial_resultado)
+        wrong_option.print_wrong_option
+        @try_again = wrong_option.try_again
 
-        break if @intentar_otra_vez == "No"
+        break if @try_again == "No"
       end
       break
     end
-    break if @realizar_otra_operacion == "No"
-    break if @intentar_otra_vez == "No"
+    break if @other_operation == "No"
+    break if @try_again == "No"
   when 2
-    loop do
-      menus.flotantes
-      operacion = menus.operacion
-
-      case operacion
-      when 1
-        interfaz_flotantes.suma_flotantes
-        otra_operacion.imprimir
-        @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
-        @historial.push(interfaz_flotantes.historial_resultado)
-
-        break if @realizar_otra_operacion == "No"
-      when 2
-        interfaz_flotantes.resta_flotantes
-        otra_operacion.imprimir
-        @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
-        @historial.push(interfaz_flotantes.historial_resultado)
-
-        break if @realizar_otra_operacion == "No"
-      when 3
-        interfaz_flotantes.multiplicacion_flotantes
-        otra_operacion.imprimir
-        @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
-        @historial.push(interfaz_flotantes.historial_resultado)
-
-        break if @realizar_otra_operacion == "No"
-      when 4
-        interfaz_flotantes.division_flotantes
-        otra_operacion.imprimir
-        @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
-        @historial.push(interfaz_flotantes.historial_resultado)
-
-        break if @realizar_otra_operacion == "No"
-      when 5
-        break
-      else
-        opcion_incorrecta.imprimir
-        @intentar_otra_vez = opcion_incorrecta.intentar_otra_vez
-
-        break if @intentar_otra_vez == "No"
-      end
-      break
-    end
-    break if @realizar_otra_operacion == "No"
-    break if @intentar_otra_vez == "No"
-  when 3
-    if @historial.count == 0
-      menus.historial_vacio
-      otra_operacion.imprimir
-      @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
+    if @history.count == 0
+      menus.empty_history
+      other_operation.print_other_operation
+      @other_operation = other_operation.other_operation
       
-      break if @realizar_otra_operacion== "No"
+      break if @other_operation== "No"
     else
-      menus.historial(@historial)
-      otra_operacion.imprimir
-      @realizar_otra_operacion = otra_operacion.realizar_otra_operacion
+      menus.history(@history)
+      other_operation.print_other_operation
+      @other_operation = other_operation.other_operation
       
-      break if @realizar_otra_operacion== "No"
+      break if @other_operation== "No"
     end
-  when 4
+  when 3
     break
   else
-    opcion_incorrecta.imprimir
+    wrong_option.print_wrong_option
 
-    break if opcion_incorrecta.intentar_otra_vez == "No"
+    break if wrong_option.try_again == "No"
   end
-  break if @realizar_otra_operacion == "No"
+  break if @other_operation == "No"
 end
 
-menus.saludo
+menus.good_bye

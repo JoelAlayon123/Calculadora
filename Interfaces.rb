@@ -1,121 +1,60 @@
-require_relative "Calcular.rb"
+class NumbersInterface
+  attr_reader :results_history
 
-class InterfazEnteros
-  attr_reader :historial_resultado
+  def add
+    puts "You selected the operation 'Add'"
+    print "Enter the first number to add: "; a = gets.chomp
+    print "Enter the second number to add: ";  b = gets.chomp
 
-  def suma_enteros
-    puts "Usted seleccionó la operación 'Suma'"
-    print "Ingrese el primer numero a sumar: "; a = gets.chomp.to_i
-    print "Ingrese el segundo numero a sumar: ";  b = gets.chomp.to_i
 
-    calcular = Calcular.new(a, b)
-    calcular.sumar
+    calculate = Calculate.new(a, b)
+    calculate.add
 
-    puts "La suma de #{a} + #{b} = #{calcular.resultado}"
+    puts "The sum of #{a} + #{b} = #{calculate.result}"
     puts "===================================================="
     
-    @historial_resultado = ("#{a} + #{b} = #{calcular.resultado}")
-  end
+    @results_history = ("#{a} + #{b} = #{calculate.result}")
+  end 
 
-  def resta_enteros
-    puts "Usted seleccionó la operación 'Resta'"
-    print "Ingrese el primer numero: "; a = gets.chomp.to_i
-    print "Ingrese el segundo numero: ";  b = gets.chomp.to_i
+  def subtract
+    puts "You selected the operation 'Subtraction'"
+    print "Enter the first number to substract: "; a = gets.chomp.to_i
+    print "Enter the second number to substract: ";  b = gets.chomp.to_i
 
-    calcular = Calcular.new(a, b)
-    calcular.restar
+    calculate = Calculate.new(a, b)
+    calculate.subtract
 
-    puts "La resta de #{a} - #{b} = #{calcular.resultado}"
+    puts "The subtraction of #{a} - #{b} = #{calculate.result}"
     puts "===================================================="
         
-    @historial_resultado = ("#{a} - #{b} = #{calcular.resultado}")
+    @results_history = ("#{a} - #{b} = #{calculate.result}")
   end
 
-  def multiplicacion_enteros
-    puts "Usted seleccionó la operación 'Multiplicación'"
-    print "Ingrese el primer numero: "; a = gets.chomp.to_i
-    print "Ingrese el segundo numero: ";  b = gets.chomp.to_i
+  def multiplicate
+    puts "You selected the operation 'Multiplication'"
+    print "Enter the first number to multiply: "; a = gets.chomp.to_i
+    print "Enter the first number to multiply: ";  b = gets.chomp.to_i
 
-    calcular = Calcular.new(a, b)
-    calcular.multiplicar
+    calculate = Calculate.new(a, b)
+    calculate.multiplicate
 
-    puts "La multiplicación de #{a} * #{b} = #{calcular.resultado}"
+    puts "The multiplication of #{a} * #{b} = #{calculate.result}"
     puts "===================================================="
 
-    @historial_resultado = ("#{a} * #{b} = #{calcular.resultado}")
+    @results_history = ("#{a} * #{b} = #{calculate.result}")
   end
 
-  def division_enteros
-    puts "Usted seleccionó la operación 'División'"
-    print "Ingrese el primer numero: "; a = gets.chomp.to_i
-    print "Ingrese el segundo numero: ";  b = gets.chomp.to_i
+  def division
+    puts "You selected the operation 'division'"
+    print "Enter the first number to divide: "; a = gets.chomp.to_i
+    print "Enter the first number to divide: ";  b = gets.chomp.to_i
 
-    calcular = Calcular.new(a, b)
-    calcular.dividir
+    calculate = Calculate.new(a, b)
+    calculate.division
   
-    puts "La división de #{a} / #{b} = #{calcular.resultado}"
+    puts "The division of #{a} / #{b} = #{calculate.result}"
     puts "===================================================="
         
-    @historial_resultado = ("#{a} / #{b} = #{calcular.resultado}")
-  end
-end
-
-class InterfazFlotantes
-  attr_reader :historial_resultado
-
-  def suma_flotantes
-    puts "Usted seleccionó la operación 'Suma'"
-    print "Ingrese el primer numero a sumar: "; a = gets.chomp.to_f
-    print "Ingrese el segundo numero a sumar: ";  b = gets.chomp.to_f
-
-    calcular = Calcular.new(a, b)
-    calcular.sumar
-
-    puts "La suma de #{a} + #{b} = #{calcular.resultado}"
-    puts "===================================================="
-
-    @historial_resultado = ("#{a} + #{b} = #{calcular.resultado}")
-  end
-
-  def resta_flotantes
-    puts "Usted seleccionó la operación 'Resta'"
-    print "Ingrese el primer numero: "; a = gets.chomp.to_f
-    print "Ingrese el segundo numero: ";  b = gets.chomp.to_f
-
-    calcular = Calcular.new(a, b)
-    calcular.restar
-    
-    puts "La resta de #{a} - #{b} = #{calcular.resultado}"
-    puts "===================================================="
-
-    @historial_resultado = ("#{a} - #{b} = #{calcular.resultado}")
-  end
-
-  def multiplicacion_flotantes
-    puts "Usted seleccionó la operación 'Multiplicación'"
-    print "Ingrese el primer numero: "; a = gets.chomp.to_f
-    print "Ingrese el segundo numero: ";  b = gets.chomp.to_f
-
-    calcular = Calcular.new(a, b)
-    calcular.multiplicar
-    
-    puts "La multiplicación de #{a} * #{b} = #{calcular.resultado}"
-    puts "===================================================="
-
-    @historial_resultado = ("#{a} * #{b} = #{calcular.resultado}")
-  end
-
-  def division_flotantes
-    puts "Usted seleccionó la operación 'División'"
-    print "Ingrese el primer numero: "; a = gets.chomp.to_f
-    print "Ingrese el segundo numero: ";  b = gets.chomp.to_f
-
-    calcular = Calcular.new(a, b)
-    calcular.dividir
-    
-    puts "La división de #{a} / #{b} = #{calcular.resultado}"
-    puts "===================================================="
-
-    @historial_resultado = ("#{a} / #{b} = #{calcular.resultado}")
+    @results_history = ("#{a} / #{b} = #{calculate.result}")
   end
 end
