@@ -1,3 +1,15 @@
-# Calculadora.rb
+# Calculator
 
-Este eejercicio consiste en crear una calculadora la cual permita sumar dos numeros, ya sean numeros enteros o numeros flotantes. También debe permitir elegir al usuario si desea realizar una nueva operación y volver al inicio del script. Las operaciones realizadas se guardarán en un historial que el usuario podrá ver elgiendo dicha opción en el menu de inicio. El usuario ingresará con que numeros desea operar, es decir, flotantes o enteros y luego eligirá la operación que desee realizar. Las operaciones permitidas son las operaciones aritméticas( sumar, restar, multiplicar y dividir).
+This repository is a calculator which allows you to add two whole numbers. It also allow the user to choose whether to perform a new operation and return to the beginning of the script. The operations carried out are saved in a history that the user can see by choosing this option in the start menu. The user will enter what numbers he wants to operate with and then choose the operation he wants to perform. The allowed operations are arithmetic operations (add, subtract, multiply and divide).
+
+To run this script, first clone the repository:
+
+```bash
+git clone git@github.com:Joelit0/Calculator.git && cd Calculator
+```
+
+Then just run the main.rb file with ruby:
+
+```ruby
+ruby Main.rb
+```
